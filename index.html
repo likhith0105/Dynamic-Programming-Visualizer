@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dynamic Programming Visualizer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Dynamic Programming Visualizer</h1>
+    <p class="subtitle">Watch DP tables evolve step-by-step across classic problems.</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel controls">
+      <div class="field">
+        <label for="algorithm">Algorithm</label>
+        <select id="algorithm" class="select"></select>
+      </div>
+
+      <div class="field">
+        <label for="speed">Speed</label>
+        <input id="speed" class="range" type="range" min="50" max="1200" value="350" />
+        <div class="range-meta"><span id="speedLabel"></span></div>
+      </div>
+
+      <div class="buttons">
+        <button id="btnPrev" class="btn" type="button">◀ Prev</button>
+        <button id="btnPlay" class="btn primary" type="button">▶ Play</button>
+        <button id="btnNext" class="btn" type="button">Next ▶</button>
+        <button id="btnReset" class="btn danger" type="button">Reset</button>
+      </div>
+
+      <div class="field">
+        <label for="preset">Preset inputs</label>
+        <select id="preset" class="select"></select>
+      </div>
+
+      <div class="form-grid" id="inputs"></div>
+
+      <div class="result-card" aria-live="polite">
+        <div class="result-title">Result</div>
+        <div id="result" class="result-value">—</div>
+      </div>
+
+      <div class="hint">
+        Tips: Use <b>Play</b> for animation or <b>Next</b> for manual stepping.
+      </div>
+    </section>
+
+    <section class="panel viz">
+      <div class="viz-head">
+        <div>
+          <div class="viz-title">DP Table</div>
+          <div class="viz-step" id="vizStep">Step —</div>
+        </div>
+        <div class="viz-explain" id="vizExplain">Select an algorithm to begin.</div>
+      </div>
+
+      <div class="table-wrap" id="tableWrap"></div>
+
+      <div class="legend" id="legend">
+        <div><span class="sw sw-cur"></span> Current</div>
+        <div><span class="sw sw-dep"></span> Dependency</div>
+        <div><span class="sw sw-try"></span> Candidate / Compared</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    Built as a learning tool for dynamic programming concepts (optimal substructure + overlapping subproblems).
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
